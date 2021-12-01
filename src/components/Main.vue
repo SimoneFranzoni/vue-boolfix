@@ -16,6 +16,9 @@ export default {
     components: {
         FilmBox,
     },
+    props: {
+        text: String,
+    },
 
     data(){
         return{
@@ -28,7 +31,7 @@ export default {
             axios.get('https://api.themoviedb.org/3/search/movie', {
                 params: {
                     api_key: 'efad0886635868ce8279b36ffb724bcb',
-                    query: 'fantozzi'
+                    query = text,
                 } 
             })      
             .then( r =>{
@@ -48,6 +51,6 @@ export default {
 }
 </script>
 
-<style >
-
+<style lang="scss" scoped>
+    
 </style>
