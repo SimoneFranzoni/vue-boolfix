@@ -1,8 +1,12 @@
 <template>
   <header>
         <div class="searchBar">
-            <input type="text" placeholder="Cerca un film o una serie tv">
-            <button>
+            <input 
+            v-model="textToSearch"
+            @keyup.enter="$emit('sendSearch',textToSearch)"
+            class="form-control" type="text" placeholder="Cerca un film o una serie tv">
+            <button
+            @click="$emit('sendSearch',textToSearch)">
                 Cerca
             </button>
         </div>
@@ -12,6 +16,11 @@
 <script>
 export default {
     name: 'Header',
+    data(){
+        return{
+            textToSearch: '',
+        }
+    },
 }
 </script>
 

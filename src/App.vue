@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <Header @sendSearch="performSearch"/>
     <Main />
   </div>
 </template>
@@ -14,8 +14,27 @@ export default {
   components: {
     Header,
     Main,
+  },
+  
+  data(){
+    return{
+      textToSearch: '',
+    }
+  },
+
+  props: {
+    text: String,
+  },
+  
+  methods: {
+    performSearch(text){
+      this.textToSearch = text;
+      console.log(this.textToSearch);
+      console.log(text);
+    },
   }
 }
+
 </script>
 
 <style lang="scss">
