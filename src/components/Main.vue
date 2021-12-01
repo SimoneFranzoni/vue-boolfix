@@ -19,19 +19,26 @@ export default {
 
     data(){
         return{
-           apiUrl: 'https://api.themoviedb.org/3/movie/550?api_key=efad0886635868ce8279b36ffb724bcb',
+            film: [],
         }
     },
 
     methods:{
         getApi(){
-            axios.get(this.apiUrl)
+            axios.get('https://api.themoviedb.org/3/search/movie', {
+                params: {
+                    api_key: 'efad0886635868ce8279b36ffb724bcb',
+                    query: 'fantozzi'
+                } 
+            })      
             .then( r =>{
-                this.film = r.data;
+                console.log(r);
+                this.film = r.data.results;
+                console.log(this.film);
             })
             .catch( e => {
                 console.log(e);
-            })
+            });
         }
     },
 
