@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+
 import FilmBox from './FilmBox';
 export default {
     name:'Main',
@@ -17,37 +17,9 @@ export default {
         FilmBox,
     },
     props: {
-        text: String,
+        film: Array,
     },
-
-    data(){
-        return{
-            film: [],
-        }
-    },
-
-    methods:{
-        getApi(){
-            axios.get('https://api.themoviedb.org/3/search/movie', {
-                params: {
-                    api_key: 'efad0886635868ce8279b36ffb724bcb',
-                    query = text,
-                } 
-            })      
-            .then( r =>{
-                console.log(r);
-                this.film = r.data.results;
-                console.log(this.film);
-            })
-            .catch( e => {
-                console.log(e);
-            });
-        }
-    },
-
-    mounted(){
-        this.getApi();
-    }
+   
 }
 </script>
 
