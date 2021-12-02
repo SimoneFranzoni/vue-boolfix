@@ -26,7 +26,7 @@ export default {
       apiParams: {
         api_key: 'efad0886635868ce8279b36ffb724bcb',
         language: 'it-IT',
-        query: 'fant',
+        query: '',
       }
     }
   },
@@ -36,10 +36,6 @@ export default {
   },
   
   methods: {
-    performSearch(text){
-      this.textToSearch = text;
-      console.log(text);
-    },
 
     getApi(){
       axios.get(this.apiUrl, {params: this.apiParams})      
@@ -51,7 +47,14 @@ export default {
       .catch( e => {
         console.log(e);
       });
-    }
+    },
+
+    performSearch(text){
+      this.apiParams.query = text;
+      console.log(this.apiParams.query);
+      //modifico il dato ed eseguo nuovamente la chimata
+      this.getApi()
+    },
   },
 
   mounted(){
