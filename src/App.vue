@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header @sendSearch="performSearch"/>
-    <Main :film="film"/>
+    <Main :film="film" :tv="tv"/>
   </div>
 </template>
 
@@ -22,7 +22,10 @@ export default {
     return{
       textToSearch: '',
       film: [],
-      apiUrl: 'https://api.themoviedb.org/3/search/movie',
+      tv: [],
+      movie: 'movie',
+      serie_tv: 'tv',
+      apiUrl: 'https://api.themoviedb.org/3/search/',
       apiParams: {
         api_key: 'efad0886635868ce8279b36ffb724bcb',
         language: 'it-IT',
@@ -37,11 +40,23 @@ export default {
   
   methods: {
 
-    getApi(){
-      axios.get(this.apiUrl, {params: this.apiParams})      
+    getApiFilm(){
+      axios.get(this.apiUrl + this.movie, {params: this.apiParams})      
       .then( r =>{
       //console.log(r);
       this.film = r.data.results;
+      //console.log(this.film);
+      })
+      .catch( e => {
+        console.log(e);
+      });
+    },
+
+    getApiTv(){
+      axios.get(this.apiUrl + this.serie_tv, {params: this.apiParams})      
+      .then( r =>{
+      //console.log(r);
+      this.tv = r.data.results;
       //console.log(this.film);
       })
       .catch( e => {
@@ -53,12 +68,13 @@ export default {
       this.apiParams.query = text;
       console.log(this.apiParams.query);
       //modifico il dato ed eseguo nuovamente la chimata
-      this.getApi()
+      this.getApiFilm()
+      this.getApiTv()
     },
   },
 
   mounted(){
-    this.getApi();
+    this.getApiFilm();
   }
 }
 

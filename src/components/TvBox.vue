@@ -1,7 +1,7 @@
 <template>
   <div>
-      <h3>{{item.title}}</h3>
-      <p>{{item.original_title}}</p>
+      <h2>{{item.name}}</h2>
+      <p>{{item.original_name}}</p>
       <p>{{item.original_language}}</p>
       <p>{{item.vote_average}}</p>
   </div>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-    name:'FilmBox',
+    name:'TvBox',
     props:{
         item: Object
     }
