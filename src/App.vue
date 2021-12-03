@@ -23,8 +23,7 @@ export default {
       textToSearch: '',
       film: [],
       tv: [],
-      movie: 'movie',
-      serie_tv: 'tv',
+      type: '',
       apiUrl: 'https://api.themoviedb.org/3/search/',
       apiParams: {
         api_key: 'efad0886635868ce8279b36ffb724bcb',
@@ -39,24 +38,12 @@ export default {
   },
   
   methods: {
-
-    getApiFilm(){
-      axios.get(this.apiUrl + this.movie, {params: this.apiParams})      
+    getApi(type){
+      axios.get(this.apiUrl + type, {params: this.apiParams})      
       .then( r =>{
       //console.log(r);
-      this.film = r.data.results;
-      //console.log(this.film);
-      })
-      .catch( e => {
-        console.log(e);
-      });
-    },
-
-    getApiTv(){
-      axios.get(this.apiUrl + this.serie_tv, {params: this.apiParams})      
-      .then( r =>{
-      //console.log(r);
-      this.tv = r.data.results;
+      //Le [] hanno accesso al valore della variabile
+      this[type] = r.data.results;
       //console.log(this.film);
       })
       .catch( e => {
@@ -68,13 +55,13 @@ export default {
       this.apiParams.query = text;
       console.log(this.apiParams.query);
       //modifico il dato ed eseguo nuovamente la chimata
-      this.getApiFilm()
-      this.getApiTv()
+      this.getApi('movie')
+      this.getApi('tv')
     },
   },
 
   mounted(){
-    this.getApiFilm();
+    this.getApi();
   }
 }
 
