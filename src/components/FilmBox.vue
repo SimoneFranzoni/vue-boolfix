@@ -1,13 +1,13 @@
 <template>
     <div>
-        <h3>{{item.title}}</h3>
+        <h2>{{item.title || item.name}}</h2>
         <img 
+        v-if="item.poster_path"
         :src="'https://image.tmdb.org/t/p/w342/${item.poster_path}'" 
-        :alt="item. title">
-        <p>{{item.original_title}}</p>
-        <div>{{item.original_language}}
-           
-        </div>
+        :alt="item.title || item.name">
+        <p v-else>PLACEHOLDER</p>
+        <p>{{item.original_title || item.original_name}}</p>
+        <div>{{item.original_language}}</div>
         <div>
             <i
             v-for="(intem, index) in 5"

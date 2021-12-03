@@ -1,9 +1,12 @@
 <template>
-  <div>
-      <h2>{{item.name}}</h2>
-      <p>{{item.original_name}}</p>
-      <p>{{item.original_language}}</p>
-      <div>
+    <div>
+        <h2>{{item.name}}</h2>
+        <img 
+        :src="'https://image.tmdb.org/t/p/w342/${item.poster_path}'" 
+        :alt="item. title">
+        <p>{{item.original_name}}</p>
+        <div>{{item.original_language}}</div>
+        <div>
             <i
             v-for="(intem, index) in 5"
             :key="index"
@@ -12,7 +15,7 @@
             >
             </i>
         </div>
-  </div>
+    </div>
 </template>
 
 <script>

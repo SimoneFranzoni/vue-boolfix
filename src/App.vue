@@ -1,7 +1,8 @@
 <template>
   <div>
     <Header @sendSearch="performSearch"/>
-    <Main :film="film" :tv="tv"/>
+    <Main :listItems="film" titleType="Film" />
+    <Main :listItems="tv" titleType="Serie-Tv" />
   </div>
 </template>
 
