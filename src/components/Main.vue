@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h2>FILM</h2>
         <div class="row">
             <FilmBox 
             v-for="item in film"
@@ -8,6 +9,7 @@
             />
         </div>
 
+        <h2>SERIE TV</h2>
         <div class="row">
             <TvBox 
             v-for="item in tv"
