@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <div class="box">
         <h2>{{item.title || item.name}}</h2>
         <img 
         v-if="item.poster_path"
-        :src="'https://image.tmdb.org/t/p/w342/${item.poster_path}'" 
+        :src="`https://image.tmdb.org/t/p/w342/${item.poster_path}`" 
         :alt="item.title || item.name">
         <p v-else>PLACEHOLDER</p>
         <p>{{item.original_title || item.original_name}}</p>
@@ -38,6 +38,15 @@ export default {
 <style lang="scss" scoped>
 
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+.box{
+    background-color: darkgrey;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 /*
  <img 

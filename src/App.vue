@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header @sendSearch="performSearch"/>
-    <Main :listItems="film" titleType="Film" />
+    <Main :listItems="movie" titleType="Film" />
     <Main :listItems="tv" titleType="Serie-Tv" />
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {
   data(){
     return{
       textToSearch: '',
-      film: [],
+      movie: [],
       tv: [],
       type: '',
       apiUrl: 'https://api.themoviedb.org/3/search/',

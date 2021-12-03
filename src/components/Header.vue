@@ -1,5 +1,6 @@
 <template>
   <header>
+        <img src="../assets\img\boolflix-logo.png" alt="">
         <div class="searchBar">
             <input 
             v-model="textToSearch"
@@ -27,10 +28,10 @@ export default {
 <style lang="scss" scoped>
     header{
         height: 100px;
-        background-color: cornflowerblue;
+        background-color: rgb(49, 49, 49);
         display: flex;
-        justify-content: flex-end;
-        align-content: center;
+        justify-content: space-between;
+       
         .searchBar{
             height: 50%;
             width: 40%;

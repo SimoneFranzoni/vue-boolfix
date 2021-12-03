@@ -32,7 +32,8 @@ export default {
     
     .row{
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        
     }
 
 </style>
