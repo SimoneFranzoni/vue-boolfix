@@ -1,9 +1,12 @@
 <template>
     <div>
         <h3>{{item.title}}</h3>
+        <img 
+        :src="'https://image.tmdb.org/t/p/w342/${item.poster_path}'" 
+        :alt="item. title">
         <p>{{item.original_title}}</p>
         <div>{{item.original_language}}
-          
+           
         </div>
         <div>
             <i
@@ -36,5 +39,11 @@ export default {
 
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
-
+/*
+ <img 
+    v-if="flags.include(item.original_language)"
+    :src="require('../assets/img/${item.original_language}.png')" 
+    :alt="item.title">
+    <p v-else>Lingua: {{item.original_language}}</p>
+*/
 </style>
