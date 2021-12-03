@@ -30,9 +30,18 @@ export default {
 
 <style lang="scss" scoped>
     
+    h1{
+        text-align: center;
+        background-color: black;
+        color: red;
+    }
+
     .row{
         display: flex;
         flex-wrap: nowrap;
+        background-color: black;
+        color: white;
+        overflow-y: scroll;
         
     }
 

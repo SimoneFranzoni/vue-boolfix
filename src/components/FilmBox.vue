@@ -40,11 +40,11 @@ export default {
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
 .box{
-    background-color: darkgrey;
     margin: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 
